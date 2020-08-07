@@ -64,26 +64,33 @@ number_of_layers_range = [2, 3, 4]
 number_of_neurons_range = [10, 25, 50, 100]
 dropout_range = [0, 0.1, 0.25, 0.5]
 l1_l2_range = [0, 1, 2, 3]
-epochs_range = [5, 10, 15, 20, 25]
-batch_size_range = [32, 64, 128, 256]
+epochs_range = [5, 10, 15, 20]
 
 if __name__ == '__main__':
+    n = 0
     result_array = []
     for a in number_of_layers_range:
         for b in number_of_neurons_range:
             for c in dropout_range:
                 for d in l1_l2_range:
                     for e in epochs_range:
-                        for f in batch_size_range:
-                            network = create_model(a, b, c, d)
-                            network.fit(train_images, train_labels, epochs=e, batch_size=f)
-                            test_loss, test_acc = network.evaluate(test_images, test_labels)
-                            result_array.append([a, b, c, d, e, f, test_loss, test_acc])
-    print(result_array)
-    result_array = numpy.array(result_array)
-    ranked_result_array = result_array[result_array[:, 7].argsort()]
-    print('Accuracy:', ranked_result_array[0][6], '\nLoss:', ranked_result_array[0][7], '\nNumber of layers:',
-          ranked_result_array[0][0], '\nNumber of neurons:', ranked_result_array[0][1], '\nNumber of neurons:',
-          ranked_result_array[0][2], '\nDropout parameter:', ranked_result_array[0][3], '\nL1/L2 regularization type:',
-          ranked_result_array[0][4], '\nEpochs:', ranked_result_array[0][5], '\nBatch size:', ranked_result_array[0][6])
+                        network = create_model(a, b, c, d)
+                        network.fit(train_images, train_labels, epochs=e, batch_size=128, verbose=0)
+                        test_loss, test_acc = network.evaluate(test_images, test_labels)
+                        result_array.append([a, b, c, d, e, test_loss, test_acc])
+                        n += 1
+                        print(n, '/768')
+    for i in result_array:
+        print(i)
+    result_array = np.array(result_array)
+    ranked_result_array = result_array[result_array[:, 6].argsort()]
+    for i in ranked_result_array:
+        print(i)
+    print('Accuracy:', ranked_result_array[len(ranked_result_array) - 1][6],
+          '\nLoss:', ranked_result_array[len(ranked_result_array) - 1][5],
+          '\nNumber of layers:', ranked_result_array[len(ranked_result_array) - 1][0],
+          '\nNumber of neurons:', ranked_result_array[len(ranked_result_array) - 1][1],
+          '\nDropout parameter:', ranked_result_array[len(ranked_result_array) - 1][2],
+          '\nL1/L2 regularization type:', ranked_result_array[len(ranked_result_array) - 1][3],
+          '\nEpochs:', ranked_result_array[len(ranked_result_array) - 1][4])
 
