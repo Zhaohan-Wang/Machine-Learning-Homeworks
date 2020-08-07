@@ -1,6 +1,7 @@
 # Machine-Learning-Homeworks
 
-# For homework 1 quest 1, I got the result above:
+For homework 1 quest 1, I got the result above:
+-------  
 
    32/10000 [..............................] - ETA: 6s
    
@@ -14,7 +15,8 @@
 
 test_acc: 0.9775000214576721
 
-# For homework 1 quest 2, the parameter adjusting part, the final results are above:
+For homework 1 quest 2, the parameter adjusting part, the final results are above:
+-------  
 
 Test accuracy: 0.9850999712944031 
 
