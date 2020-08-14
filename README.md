@@ -1,17 +1,18 @@
 # Machine-Learning-Homeworks
 
-For homework 1 quest 1, I got the result above:
+For homework 2, I got the result above:
 -------  
 
-   32/10000 [..............................] - ETA: 6s
-   
- 2592/10000 [======>.......................] - ETA: 0s
- 
- 5312/10000 [==============>...............] - ETA: 0s
- 
- 8000/10000 [=======================>......] - ETA: 0s
- 
-10000/10000 [==============================] - 0s 21us/step
+Epoch:  1 / 5
+Epoch:  2 / 5
+Epoch:  3 / 5
+Epoch:  4 / 5
+Epoch:  5 / 5
+Accuracy:  0.9724
+
+
+For homework 1 quest 1, I got the result above:
+-------  
 
 test_acc: 0.9775000214576721
 
