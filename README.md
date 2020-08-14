@@ -4,10 +4,15 @@ For homework 2, I got the result above:
 -------  
 
 Epoch:  1 / 5
+
 Epoch:  2 / 5
+
 Epoch:  3 / 5
+
 Epoch:  4 / 5
+
 Epoch:  5 / 5
+
 Accuracy:  0.9724
 
 
